@@ -1,8 +1,8 @@
 class PictureController < ApplicationController
 before_action :authenticate_user!
   def create
-    @gram = Gram.find(params[:gram_id])
-    @gram.photos.create(photo_params)
+    @gram = Gram.find_by_id(params[:id])
+    @gram.pictures.create(photo_params)
     redirect_to gram_path(@gram)
   end
 
