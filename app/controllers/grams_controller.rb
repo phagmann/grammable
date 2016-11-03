@@ -11,9 +11,13 @@ class GramsController < ApplicationController
 
   def create
     @gram = current_user.grams.create(gram_params)
+    puts "Testing"
+    puts @gram.valid?
     if @gram.valid?
+        puts "Passed"
         redirect_to root_path
     else
+        puts "Failed"
         render :new, status: :unprocessable_entity
     end
   end

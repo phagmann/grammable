@@ -20,12 +20,15 @@ ActiveRecord::Schema.define(version: 20161103181157) do
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
     t.string   "picture"
   end
 
+  add_index "grams", ["user_id"], name: "index_grams_on_user_id", using: :btree
+
   create_table "pictures", force: true do |t|
     t.text     "caption"
-    t.integer  "place_id"
+    t.integer  "gram_id"
     t.string   "pic"
     t.datetime "created_at"
     t.datetime "updated_at"
