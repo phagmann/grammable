@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "grams#index"
   resources :grams, only: [:new, :create, :show, :edit, :update, :destroy] do 
     resource :pictures, only: :create
+    resource :comments, only: :create
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

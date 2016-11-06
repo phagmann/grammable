@@ -11,13 +11,9 @@ class GramsController < ApplicationController
 
   def create
     @gram = current_user.grams.create(gram_params)
-    puts "Testing"
-    puts @gram.valid?
     if @gram.valid?
-        puts "Passed"
         redirect_to root_path
     else
-        puts "Failed"
         render :new, status: :unprocessable_entity
     end
   end
@@ -61,9 +57,7 @@ class GramsController < ApplicationController
     # add :picture to parms?
   end
 
-  def render_not_found
-    render text: 'Not Found :(', status: :not_found
-  end
+  
 
   def render_forbid
     render text: 'Forbidden :(', status: :forbidden
